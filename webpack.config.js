@@ -2,7 +2,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
-  template: `${__dirname}/app/index.html`,
+  template: `${__dirname}/src/components/home/index.html`,
   filename: 'index.html',
   inject: 'body',
 });
@@ -10,7 +10,7 @@ const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
 module.exports = {
   // 檔案起始點從 entry 進入，因為是陣列所以也可以是多個檔案
   entry: [
-    './app/index.js',
+    './src/components/home/index.js',
   ],
   // output 是放入產生出來的結果的相關參數
   output: {
@@ -27,6 +27,10 @@ module.exports = {
         query: {
           presets: ['es2015', 'react'],
         },
+      },
+      {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader',
       },
     ],
   },

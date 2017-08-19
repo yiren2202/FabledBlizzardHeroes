@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --devtool eval --progress --colors --content-base build"
+    "clean": "rimraf dist/*",
+    "dist": "npm run clean && webpack --progress --bail --env dist -p",
+    "start": "webpack-dev-server --open --env dev",
+    "deploy": "npm run dist && gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -22,12 +25,19 @@
     "babel-loader": "^7.1.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "gh-pages": "^1.0.0",
     "html-webpack-plugin": "^2.30.1",
     "webpack": "^3.5.5",
     "webpack-dev-server": "^2.7.1"
   },
   "dependencies": {
+    "bootstrap": "^4.0.0-alpha.6",
+    "css-loader": "^0.28.5",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-addons-css-transition-group": "^15.6.0",
+    "react-addons-transition-group": "^15.6.0",
+    "react-dom": "^15.6.1",
+    "reactstrap": "^4.8.0",
+    "style-loader": "^0.18.2"
   }
 }
